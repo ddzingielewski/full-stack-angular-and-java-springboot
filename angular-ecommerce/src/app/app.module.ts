@@ -40,7 +40,7 @@ const routes: Routes = [
     CheckoutComponent,
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     BrowserModule,
     HttpClientModule,
     NgbModule,
