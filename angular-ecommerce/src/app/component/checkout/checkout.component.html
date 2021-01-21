@@ -14,7 +14,7 @@
                                     <div *ngIf="firstName.errors.required || firstName.errors.notOnlyWhiteSigns">
                                       First Name is required
                                     </div>
-                                    <div *ngIf="firstName.errors.minLength">
+                                    <div *ngIf="firstName.errors.minlength">
                                       First Name must be at least 2 characters long
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                                   <div *ngIf="lastName.errors.required || lastName.errors.notOnlyWhiteSigns">
                                     Last Name is required
                                   </div>
-                                  <div *ngIf="lastName.errors.minLength">
+                                  <div *ngIf="lastName.errors.minlength">
                                     Last Name must be at least 2 characters long
                                   </div>
                               </div>
@@ -82,7 +82,7 @@
                                   <div *ngIf="shippingAddressStreet.errors.required || shippingAddressStreet.errors.notOnlyWhiteSigns">
                                     Street is required
                                   </div>
-                                  <div *ngIf="shippingAddressStreet.errors.minLength">
+                                  <div *ngIf="shippingAddressStreet.errors.minlength">
                                     Street must be at least 2 characters long
                                   </div>
                                 </div>
@@ -98,7 +98,7 @@
                                   <div *ngIf="shippingAddressCity.errors.required || shippingAddressCity.errors.notOnlyWhiteSigns">
                                     City is required
                                   </div>
-                                  <div *ngIf="shippingAddressCity.errors.minLength">
+                                  <div *ngIf="shippingAddressCity.errors.minlength">
                                     City must be at least 2 characters long
                                   </div>
                                 </div>
@@ -131,7 +131,7 @@
                                   <div *ngIf="shippingAddressZipCode.errors.required || shippingAddressZipCode.errors.notOnlyWhiteSigns">
                                     Zip code is required
                                   </div>
-                                  <div *ngIf="shippingAddressZipCode.errors.minLength">
+                                  <div *ngIf="shippingAddressZipCode.errors.minlength">
                                     Zip code must be at least 2 characters long
                                   </div>
                                 </div>
@@ -176,7 +176,7 @@
                                   <div *ngIf="billingAddressStreet.errors.required || billingAddressStreet.errors.notOnlyWhiteSigns">
                                     Street is required
                                   </div>
-                                  <div *ngIf="billingAddressStreet.errors.minLength">
+                                  <div *ngIf="billingAddressStreet.errors.minlength">
                                     Street must be at least 2 characters long
                                   </div>
                                 </div>
@@ -192,7 +192,7 @@
                                   <div *ngIf="billingAddressCity.errors.required || billingAddressCity.errors.notOnlyWhiteSigns">
                                     City is required
                                   </div>
-                                  <div *ngIf="billingAddressCity.errors.minLength">
+                                  <div *ngIf="billingAddressCity.errors.minlength">
                                     City must be at least 2 characters long
                                   </div>
                                 </div>
@@ -225,7 +225,7 @@
                                   <div *ngIf="billingAddressZipCode.errors.required || billingAddressZipCode.errors.notOnlyWhiteSigns">
                                     Zip code is required
                                   </div>
-                                  <div *ngIf="billingAddressZipCode.errors.minLength">
+                                  <div *ngIf="billingAddressZipCode.errors.minlength">
                                     Zip code must be at least 2 characters long
                                   </div>
                                 </div>
@@ -261,7 +261,7 @@
                                   <div *ngIf="creditCardNameOnCard.errors.required || creditCardNameOnCard.errors.notOnlyWhiteSigns">
                                     Card name is required
                                   </div>
-                                  <div *ngIf="creditCardNameOnCard.errors.minLength">
+                                  <div *ngIf="creditCardNameOnCard.errors.minlength">
                                     Card name must be at least 2 characters long
                                   </div>
                                 </div>
@@ -272,7 +272,7 @@
                         <div class="col-md-2"><label>Card number</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="cardNumber" type="text">
+                                <input formControlName="cardNumber" type="text" maxlength="16">
                                 <div *ngIf="creditCardCardNumber.invalid && (creditCardCardNumber.touched || creditCardCardNumber.dirty)" class="alert alert-danger mt-1">
                                   <div *ngIf="creditCardCardNumber.errors.required">
                                     Card number is required
@@ -291,7 +291,7 @@
                         <div class="col-md-2"><label>Security Code</label></div>
                         <div class="col-md-9">
                             <div class="input-space">
-                                <input formControlName="securityCode" type="text">
+                                <input formControlName="securityCode" type="text" maxlength="3">
                                 <div *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.touched || creditCardSecurityCode.dirty)" class="alert alert-danger mt-1">
                                   <div *ngIf="creditCardSecurityCode.errors.required">
                                     Security code is required
