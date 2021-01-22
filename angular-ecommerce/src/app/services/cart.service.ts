@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from '../common/cart-item';
 import { BehaviorSubject, Subject } from 'rxjs';
-import { templateJitUrl } from '@angular/compiler';
+import { CartItem } from '../common/cart-item';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +10,11 @@ export class CartService {
   cartItems: CartItem[];
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
+  storage: Storage = localStorage;
 
 
   constructor() {
-    this.cartItems = JSON.parse(sessionStorage.getItem('cartItems')) != null ? JSON.parse(sessionStorage.getItem('cartItems')):[];
+    this.cartItems = JSON.parse(this.storage.getItem('cartItems')) != null ? JSON.parse(this.storage.getItem('cartItems')):[];
   }
 
   getCartItems(): CartItem[]{
@@ -49,7 +49,7 @@ export class CartService {
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
     this.logCartData(totalPriceValue, totalQuantityValue);
-   // this.persistCartItems();
+    this.persistCartItems();
   }
 
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
@@ -62,7 +62,7 @@ export class CartService {
     console.log('------------')
   }
   persistCartItems(){
-    sessionStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+    this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
   }
   removeFromCart(cartItem: CartItem) {
     cartItem.quantity--;
